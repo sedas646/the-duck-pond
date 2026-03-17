@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>The Pond | Your Safe Space</title>
-    
+
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#a8dadc">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --pond-blue: #a8dadc;
@@ -22,8 +22,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Quicksand', sans-serif;
-            /* Using the Canva background from Step 1 */
-            background-image: url('background.jpg'); 
+            background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -42,7 +41,6 @@
         h1 { font-weight: 500; margin: 0; color: #457b9d; font-size: 1.8rem; }
         p { font-weight: 300; font-size: 0.9rem; margin-top: 5px; }
 
-        /* --- Breathing Duck Section --- */
         .duck-container {
             height: 220px;
             display: flex;
@@ -55,7 +53,6 @@
         .breathing-duck {
             width: 160px;
             height: auto;
-            /* Animation for anxiety grounding */
             animation: breathe 4s ease-in-out infinite;
             filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
             cursor: pointer;
@@ -74,7 +71,6 @@
             letter-spacing: 1px;
         }
 
-        /* --- Frosted Glass Cards --- */
         .card {
             background: var(--glass);
             backdrop-filter: blur(10px);
@@ -100,9 +96,11 @@
             font-size: 1rem;
             margin-top: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
 
-        /* --- Photo Pond (Memory Gallery) --- */
+        button:hover { background-color: #356685; }
+
         .photo-pond {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -114,6 +112,90 @@
 
         .polaroid {
             background: white;
-            padding: 8px 8px
+            padding: 8px 8px 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
 
-<link rel="manifest" href="manifest.json">
+        .polaroid img {
+            width: 100%;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #457b9d;
+            margin-bottom: 5px;
+        }
+
+        .affirmation {
+            font-size: 1rem;
+            color: #555;
+            font-style: italic;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>The Pond</h1>
+        <p>Your calm little corner of the internet</p>
+    </header>
+
+    <div class="duck-container">
+        <img src="duck.png" class="breathing-duck" alt="Breathing duck" onclick="toggleBreath(this)">
+        <p class="breathe-text" id="breatheLabel">breathe with the duck</p>
+    </div>
+
+    <div class="card">
+        <p class="section-title">Need a moment?</p>
+        <p class="affirmation" id="affirmationText">You are safe here. Take a slow breath in... and out.</p>
+        <button onclick="newAffirmation()">New Affirmation</button>
+    </div>
+
+    <div class="card">
+        <p class="section-title">Memory Pond</p>
+        <p>Little moments that make you smile</p>
+    </div>
+
+    <div class="photo-pond">
+        <div class="polaroid"><img src="photo1.png" alt="Memory 1"></div>
+        <div class="polaroid"><img src="photo2.png" alt="Memory 2"></div>
+        <div class="polaroid"><img src="photo3.png" alt="Memory 3"></div>
+        <div class="polaroid"><img src="photo4.png" alt="Memory 4"></div>
+        <div class="polaroid"><img src="photo5.png" alt="Memory 5"></div>
+        <div class="polaroid"><img src="photo6.png" alt="Memory 6"></div>
+    </div>
+
+    <script>
+        const affirmations = [
+            "You are safe here. Take a slow breath in... and out.",
+            "You are doing better than you think.",
+            "It's okay to rest. You don't have to be productive to deserve peace.",
+            "You are worthy of kindness — especially from yourself.",
+            "This feeling will pass. You've made it through hard days before.",
+            "You are enough, exactly as you are right now.",
+            "Take it one breath at a time. That's all you need to do.",
+            "You are loved more than you know."
+        ];
+
+        let affirmIndex = 0;
+
+        function newAffirmation() {
+            affirmIndex = (affirmIndex + 1) % affirmations.length;
+            document.getElementById('affirmationText').textContent = affirmations[affirmIndex];
+        }
+
+        let breathingPaused = false;
+        function toggleBreath(duck) {
+            breathingPaused = !breathingPaused;
+            duck.style.animationPlayState = breathingPaused ? 'paused' : 'running';
+            document.getElementById('breatheLabel').textContent = breathingPaused ? 'tap to resume' : 'breathe with the duck';
+        }
+    </script>
+
+</body>
+</html>
