@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Pond | Your Safe Space</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#a8dadc">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pond-blue: #a8dadc;
+            --duck-yellow: #ffb703;
+            --glass: rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            /* Using the Canva background from Step 1 */
+            background-image: url('background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        h1 { font-weight: 500; margin: 0; color: #457b9d; font-size: 1.8rem; }
+        p { font-weight: 300; font-size: 0.9rem; margin-top: 5px; }
+
+        /* --- Breathing Duck Section --- */
+        .duck-container {
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .breathing-duck {
+            width: 160px;
+            height: auto;
+            /* Animation for anxiety grounding */
+            animation: breathe 4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            cursor: pointer;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        .breathe-text {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #457b9d;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* --- Frosted Glass Cards --- */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            width: 85%;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        button {
+            background-color: #457b9d;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Photo Pond (Memory Gallery) --- */
+        .photo-pond {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0 20px 40px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 8px 8px
+

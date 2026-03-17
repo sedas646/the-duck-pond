@@ -1,0 +1,16 @@
+{
+  "short_name": "The Pond",
+  "name": "The Duck Sanctuary",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#f8f9fa",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#a8dadc"
+}
